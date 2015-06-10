@@ -12,6 +12,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var template = require('gulp-template');
 var tsc = require('gulp-typescript');
 var uglify = require('gulp-uglify');
+var connect = require('gulp-connect');
 
 var Builder = require('systemjs-builder');
 var del = require('del');
@@ -22,7 +23,6 @@ var semver = require('semver');
 var series = require('stream-series');
 
 var http = require('http');
-var connect = require('connect');
 var serveStatic = require('serve-static');
 var openResource = require('open');
 
@@ -154,7 +154,8 @@ gulp.task('build.index.dev', function() {
   return gulp.src('./app/index.html')
     .pipe(inject(target, { transform: transformPath('dev') }))
     .pipe(template({ VERSION: getVersion() }))
-    .pipe(gulp.dest(PATH.dest.dev.all));
+    .pipe(gulp.dest(PATH.dest.dev.all))
+    .pipe(connect.reload());
 });
 
 gulp.task('build.app.dev', function (done) {
@@ -276,12 +277,15 @@ gulp.task('serve.dev', ['build.dev'], function () {
 
   gulp.watch('./app/**', ['build.app.dev']);
 
-  app = connect().use(serveStatic(join(__dirname, PATH.dest.dev.all)));
-  http.createServer(app).listen(port, function () {
-    openResource('http://localhost:' + port);
-  });
+  runSequence('connect', 'build.index.dev');
+});
 
-  runSequence('build.index.dev');
+gulp.task('connect', function() {
+  connect.server({
+    root: join(__dirname, PATH.dest.dev.all),
+    livereload: true,
+    port: 5555,
+  });
 });
 
 // --------------
