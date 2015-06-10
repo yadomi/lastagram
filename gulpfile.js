@@ -280,6 +280,8 @@ gulp.task('serve.dev', ['build.dev'], function () {
   http.createServer(app).listen(port, function () {
     openResource('http://localhost:' + port);
   });
+
+  runSequence('build.index.dev');
 });
 
 // --------------
