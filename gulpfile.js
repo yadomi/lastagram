@@ -288,6 +288,8 @@ gulp.task('connect', function() {
   });
 });
 
+gulp.task('serve', ['serve.dev']); // Shortcut
+
 // --------------
 // Serve prod.
 
