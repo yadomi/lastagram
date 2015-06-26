@@ -1,4 +1,4 @@
-import {XHR} from '../libs/xhr';
+import {Request} from '../libs/request';
 
 let ENDPOINT = 'api.instagram.com'
 let API_VERSION = 'v1'
@@ -11,16 +11,16 @@ export class InstagramClient {
   endpoint: string
   protocol: string = 'https://'
 
-  xhr: XHR;
+  request: Request;
 
   constructor() {
-    this.xhr = new XHR();
+    this.request = Request.getInstance()
     this.endpoint = [this.protocol, ENDPOINT, API_VERSION].join('/')
   }
 
   getMedias(tag){
     let ref = `/tags/${tag}/media/recent?access_token=${ACCESS_TOKEN}&callback=callbackInstagram`
-    return this.xhr.jsonp(this.endpoint + ref).then(console.log.bind(console))
+    return this.request.jsonp(this.endpoint + ref).then(console.log.bind(console))
   }
 
 }
