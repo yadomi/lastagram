@@ -21,8 +21,8 @@ export class InstagramClient {
   }
 
   getMedias(tag){
-    let url = '/tags/' + tag + '/media/recent';
-    return this.xhr.get(this.protocol + this.endpoint + url).then(console.log.bind(console))
+    let ref = `/tags/${tag}/media/recent?access_token=${ACCESS_TOKEN}`
+    return this.xhr.get(this.endpoint + ref).then(console.log.bind(console))
   }
 
 
