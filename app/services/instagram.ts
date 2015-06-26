@@ -8,14 +8,12 @@ let CLIENT_ID = '5c1de8fe2653445489b480a72803a44c'
 
 export class InstagramClient {
 
-  endpoint: string;
-  protocol: string;
-  token:    string;
+  endpoint: string
+  protocol: string = 'https://'
 
   xhr: XHR;
 
   constructor() {
-    this.protocol = 'https://'
     this.xhr = new XHR();
     this.endpoint = [this.protocol, ENDPOINT, API_VERSION].join('/')
   }
@@ -24,6 +22,5 @@ export class InstagramClient {
     let ref = `/tags/${tag}/media/recent?access_token=${ACCESS_TOKEN}`
     return this.xhr.get(this.endpoint + ref).then(console.log.bind(console))
   }
-
 
 }
