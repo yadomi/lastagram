@@ -1,11 +1,21 @@
-export class XHR {
+export class Request {
+
   req: XMLHttpRequest;
+  private static instance: Request = new Request()
 
   constructor(){
+    if(Request.instance){
+      throw new Error('Error: Use Request.getInstance() instead')
+    }
+    Request.instance = this
     this.req = new XMLHttpRequest();
   }
 
-  _go(options) {
+  public static getInstance():Request {
+      return Request.instance;
+  }
+
+  private go(options) {
     let _this = this;
     return new Promise(function(resolve, reject){
       _this.req.open(options.method, options.url, true);
@@ -21,11 +31,11 @@ export class XHR {
     });
   }
 
-  get(url, options = {}) {
-    return this._go({method: 'GET', url: url})
+  public get(url, options = {}) {
+    return this.go({method: 'GET', url: url})
   }
 
-  jsonp(url, callback = 'callback'){
+  public jsonp(url, callback = 'callback'){
     return new Promise(function(resolve, reject) {
       callback = callback + Math.round(1000 * Math.random())
       let script = document.createElement('script');
