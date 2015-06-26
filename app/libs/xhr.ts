@@ -25,4 +25,23 @@ export class XHR {
     return this._go({method: 'GET', url: url})
   }
 
+  jsonp(url, callback = 'callback'){
+    return new Promise(function(resolve, reject) {
+      callback = callback + Math.round(1000 * Math.random())
+      let script = document.createElement('script');
+
+      script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callback;
+      script.onerror = reject;
+      document.body.appendChild(script);
+
+      window[callback] = function(data) {
+        resolve(data);
+        window[callback] = null
+        delete window[callback]
+        document.body.removeChild(script)
+      }
+
+    });
+  }
+
 }
