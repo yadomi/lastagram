@@ -1,18 +1,34 @@
 /// <reference path="../typings/tsd.d.ts" />
-import {Component, View, bootstrap} from 'angular2/angular2';
+import {Component, View, NgFor, bootstrap} from 'angular2/angular2';
 import {InstagramClient} from 'services/instagram';
 
-
-var instagram = new InstagramClient();
-instagram.getMedias('hellfest');
-
 @Component({
-  selector: 'app'
+  selector: 'app',
+  appInjector: [InstagramClient]
 })
 @View({
-  template: '<h1>Welcome !</h1>'
+  directives: [NgFor],
+  template: '<ul><li *ng-for="#picture of pictures"> hello </li></ul>'
 })
 class App {
+
+  instagramClient: InstagramClient;
+  pictures: Array<Object>;
+
+  constructor(instagramClient: InstagramClient) {
+    this.instagramClient = instagramClient;
+    this.init();
+  }
+
+  onMedia(res) {
+    console.log(res.data);
+    this.pictures = res.data;
+  }  
+
+  init(){
+    this.instagramClient.getMedias('hellfest')
+      .then(this.onMedia);
+  }
 
 }
 
