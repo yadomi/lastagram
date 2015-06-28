@@ -16,9 +16,10 @@ export class LastFMClient {
     this.apiRoot = [this.protocol, API_ROOT, API_VERSION].join('/')
   }
 
-  geEvent(location){
+  getEvents(location){
     let endpoint = `?method=geo.getevents&location=${location}&api_key=${API_KEY}&format=json`
-    return this.request.jsonp(this.apiRoot + endpoint)
+    console.log(endpoint)
+    return this.request.get(this.apiRoot + endpoint).then(JSON.parse)
   }
 
 }
