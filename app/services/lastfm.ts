@@ -6,7 +6,7 @@ let API_KEY = '59f553e943f2ea7c9e83f19e113b21b8'
 
 export class LastFMClient {
 
-  endpoint: string
+  apiRoot: string
   protocol: string = 'http://'
 
   request: Request;
