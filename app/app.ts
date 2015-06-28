@@ -7,8 +7,7 @@ import {InstagramClient} from 'services/instagram';
   appInjector: [InstagramClient]
 })
 @View({
-  directives: [NgFor],
-  template: '<ul><li *ng-for="#picture of pictures"> hello </li></ul>'
+  templateUrl: 'app.html'
 })
 class App {
 
@@ -23,7 +22,7 @@ class App {
   onMedia(res) {
     console.log(res.data);
     this.pictures = res.data;
-  }  
+  }
 
   init(){
     this.instagramClient.getMedias('hellfest')
