@@ -1,14 +1,12 @@
-# Introduction
+Lastagram
+=========
 
-Boilerplate for Angular2 learning
-
-Based on the angular boilerplate [angular2-seed](https://github.com/mgechev/angular2-seed) by [mgechev](https://github.com/mgechev)
+Instagram + LastFM = ❤️ Lastagram
 
 # How to start
 
 ```bash
-git clone https://github.com/bcalou/angular2-base.git
-cd angular2-base
+git clone ssh://git@github.com/yadomi/lastagram && cd lastagram
 npm install
 npm install -g gulp # If you don't have gulp already installed
 gulp serve
