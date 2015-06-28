@@ -17,12 +17,16 @@ export class LastFMEvents {
   constructor(lastFMClient: LastFMClient) {
     this.lastFMClient = lastFMClient;
     this.init();
+    this.events = [];
+  }
+
+  onData(data){
+    this.events = data.events.event;
   }
 
   init(){
-    this.lastFMClient.getEvents('Paris').then(function(res){
-      this.events = res.events.event;
-    });
+    console.log(this);
+    this.lastFMClient.getEvents('Paris').then(this.onData.bind(this))
   }
 
 }
