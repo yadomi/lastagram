@@ -1,32 +1,17 @@
 /// <reference path="../typings/tsd.d.ts" />
-import {Component, View, NgFor, bootstrap} from 'angular2/angular2';
-import {InstagramClient} from 'services/instagram';
+import {Component, View, bootstrap} from 'angular2/angular2';
+import {LastFMEvents} from 'components/lastfm-events/lastfm-events'
 
 @Component({
-  selector: 'app',
-  appInjector: [InstagramClient]
+  selector: 'app'
 })
 @View({
+  directives: [LastFMEvents],
   templateUrl: 'app.html'
 })
 class App {
 
-  instagramClient: InstagramClient;
-  pictures: Array<Object>;
-
-  constructor(instagramClient: InstagramClient) {
-    this.instagramClient = instagramClient;
-    this.init();
-  }
-
-  onMedia(res) {
-    console.log(res.data);
-    this.pictures = res.data;
-  }
-
-  init(){
-    this.instagramClient.getMedias('hellfest')
-      .then(this.onMedia);
+  constructor() {
   }
 
 }
