@@ -6,6 +6,10 @@ import {Component, View} from 'angular2/angular2';
 @View({
   templateUrl: './instagram-pictures.html'
 })
-class InstagramPictures {
+export class InstagramPictures {
+
+  constructor(){
+    
+  }
 
 }
