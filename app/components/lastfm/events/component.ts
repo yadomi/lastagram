@@ -3,6 +3,8 @@ import {Component, View, NgFor} from 'angular2/angular2'
 import {LastFMClient} from 'webservices/api-lastfm'
 import {LastFMEvent}  from 'components/lastfm/event/component'
 
+import {Geo} from 'services/geo'
+
 @Component({
   selector: 'lastfm-events',
   appInjector: [LastFMClient],
@@ -26,6 +28,10 @@ export class LastFMEvents {
   }
 
   init(){
-    this.lastFMClient.getArtistPastEvent('the+who').then(this.onData.bind(this))
+    Geo.getInstance().getCity().then(function(city){
+      return this.lastFMClient.getEventsNear(city)
+    }.bind(this))
+      .then(this.onData.bind(this))  
+    
   }
 }
