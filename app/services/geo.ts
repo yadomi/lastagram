@@ -37,7 +37,6 @@ export class Geo {
 
   private getNearestCities(coords) {
     let endpoint = GOOGLEMAPS_GEOCODE + coords.lat + ',' + coords.lng + '&sensor=true';
-    console.log(this);
     return this.request.get(endpoint).then(function(res: string){
       return JSON.parse(res).results[1].formatted_address;
     });
