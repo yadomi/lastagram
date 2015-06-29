@@ -1,0 +1,15 @@
+instagram-pictures {
+  height: 320px;
+  overflow: scroll;
+  display: block;
+  width: 100%;
+}
+
+instagram-pictures ul {
+  padding: 0;margin: 0;
+  width: calc(320px * 20);
+}
+
+instagram-pictures li {
+  display: inline-block;
+}
