@@ -1,0 +1,17 @@
+
+lastfm-events ul{
+  margin: 0 auto;
+  font-family: 'Lato';
+  font-weight: 300;
+  list-style: none;
+  width: 50%;
+}
+
+lastfm-events ul li h2 {
+  background-color: #3cf;
+  font-size: 5em;
+  color: white;
+  text-align: center;
+  border-radius: 68px;
+  padding: 6px 30px;
+}
