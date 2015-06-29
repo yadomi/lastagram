@@ -1,7 +1,7 @@
 import {Component, View, NgFor} from 'angular2/angular2'
 
-import {LastFMClient} from '../../services/lastfm'
-import {LastFMEvent}  from '../../components/lastfm-event/lastfm-event'
+import {LastFMClient} from 'services/lastfm'
+import {LastFMEvent}  from 'components/lastfm/event/component'
 
 @Component({
   selector: 'lastfm-events',
@@ -12,7 +12,7 @@ import {LastFMEvent}  from '../../components/lastfm-event/lastfm-event'
 })
 @View({
   directives: [NgFor, LastFMEvent],
-  templateUrl: 'components/lastfm-events/lastfm-events.html'
+  templateUrl: 'components/lastfm/events/template.html'
 })
 export class LastFMEvents {
 

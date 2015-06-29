@@ -4,7 +4,7 @@ import {Component, View} from 'angular2/angular2';
   selector: 'instagram-picture'
 })
 @View({
-  templateUrl: './instagram-picture.html'
+  templateUrl: 'components/instagram/picture/template.html'
 })
 export class InstagramPicture {
   
