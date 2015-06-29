@@ -23,11 +23,10 @@ export class InstagramPictures {
   }
 
   init() {
-    this.instagram.getMedias('pdb2015').then(this.onData.bind(this))
+    this.instagram.getMedias('hellfest2015').then(this.onData.bind(this))
   }
 
   onData(res){
-    console.log(res);
     this.pictures = res.data;
   }
 
