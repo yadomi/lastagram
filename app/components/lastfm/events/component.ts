@@ -1,6 +1,6 @@
 import {Component, View, NgFor} from 'angular2/angular2'
 
-import {LastFMClient} from 'services/lastfm'
+import {LastFMClient} from 'webservices/api-lastfm'
 import {LastFMEvent}  from 'components/lastfm/event/component'
 
 @Component({

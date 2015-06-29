@@ -2,6 +2,8 @@ import {Request} from '../libs/request';
 
 let API_ROOT = 'ws.audioscrobbler.com'
 let API_VERSION = '2.0'
+
+/* /!\ Personnal apikey, this is really bad, i know */
 let API_KEY = '59f553e943f2ea7c9e83f19e113b21b8'
 
 export class LastFMClient {
