@@ -1,3 +1,5 @@
-<ul *ng-for="picture in pictures">
-  <li><instagram-picture [picture]="picture"></instagram-picture></li>
+<ul> 
+  <li *ng-for="#picture of pictures">
+    <instagram-picture [picture]="picture"></instagram-picture>
+  </li>
 </ul>
