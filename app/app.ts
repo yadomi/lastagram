@@ -2,8 +2,8 @@
 import {Component, View, bootstrap} from 'angular2/angular2';
 import {RouteConfig, RouterOutlet, routerInjectables} from 'angular2/router';
 
-import {LastFMEvents}      from 'components/lastfm-events/lastfm-events'
-import {InstagramPictures} from 'components/instagram-pictures/instagram-pictures'
+import {LastFMEvents}      from 'components/lastfm/events/component'
+import {InstagramPictures} from 'components/instagram/pictures/component'
 
 @Component({
   selector: 'app'

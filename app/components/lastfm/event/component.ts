@@ -5,7 +5,7 @@ import {Component, View} from 'angular2/angular2'
   selector: 'lastfm-event'
 })
 @View({
-  templateUrl: 'components/lastfm-event/lastfm-event.html'
+  templateUrl: 'components/lastfm/event/template.html'
 })
 export class LastFMEvent {
 
