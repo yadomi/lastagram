@@ -25,8 +25,7 @@ export class LastFMEvents {
   }
 
   init(){
-    console.log(this);
-    this.lastFMClient.getEvents('Paris').then(this.onData.bind(this))
+    this.lastFMClient.getArtistPastEvent('the+who').then(this.onData.bind(this))
   }
 
 }
