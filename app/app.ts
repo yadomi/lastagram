@@ -12,6 +12,7 @@ import {LastFMEvents} from 'components/lastfm-events/lastfm-events'
 class App {
 
   constructor() {
+
   }
 
 }
