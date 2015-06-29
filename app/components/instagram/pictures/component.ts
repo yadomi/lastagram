@@ -3,7 +3,6 @@ import {InstagramClient} from 'webservices/api-instagram'
 
 import {InstagramPicture} from 'components/instagram/picture/component'
 
-
 @Component({
   selector: 'instagram-pictures',
   appInjector: [InstagramClient]
