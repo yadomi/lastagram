@@ -1,6 +1,7 @@
 instagram-pictures {
   height: 320px;
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
   display: block;
   width: 100%;
 }
