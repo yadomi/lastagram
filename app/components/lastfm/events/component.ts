@@ -6,9 +6,6 @@ import {LastFMEvent}  from 'components/lastfm/event/component'
 @Component({
   selector: 'lastfm-events',
   appInjector: [LastFMClient],
-  hostListeners: {
-    'click': 'onClick()',
-  }
 })
 @View({
   directives: [NgFor, LastFMEvent],
@@ -32,9 +29,4 @@ export class LastFMEvents {
   init(){
     this.lastFMClient.getArtistPastEvent('the+who').then(this.onData.bind(this))
   }
-
-  onClick() {
-    console.log('hello');
-  }
-
 }
