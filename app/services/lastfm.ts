@@ -18,13 +18,11 @@ export class LastFMClient {
 
   getEventsNear(location){
     let endpoint = `?method=geo.getevents&location=${location}&api_key=${API_KEY}&format=json`
-    console.log(endpoint)
     return this.request.get(this.apiRoot + endpoint).then(JSON.parse)
   }
 
   getArtistPastEvent(artist){
     let endpoint = `?method=artist.getpastevents&artist=${artist}&api_key=${API_KEY}&format=json`
-    console.log(endpoint)
     return this.request.get(this.apiRoot + endpoint).then(JSON.parse)
   }
 
