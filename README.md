@@ -1,7 +1,7 @@
 Lastagram
 =========
 
-Instagram + LastFM = ❤️ Lastagram
+Instagram + LastFM = :heart: Lastagram
 
 # How to start
 
