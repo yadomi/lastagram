@@ -3,7 +3,7 @@ import {Component, View, NgFor} from 'angular2/angular2'
 import {LastFMClient} from 'webservices/api-lastfm'
 import {LastFMEvent}  from 'components/lastfm/event/component'
 
-import {Geo} from 'services/geo'
+import {Geo} from 'libs/geo'
 
 @Component({
   selector: 'lastfm-events',
