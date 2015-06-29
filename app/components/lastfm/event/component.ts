@@ -9,11 +9,12 @@ import {Component, View} from 'angular2/angular2'
 })
 export class LastFMEvent {
 
-    constructor() {
-    }
+  private event: LastFMEvent;
 
-    onClick() {
-      console.log('ehllo');
-    }
+  constructor() {}
+
+  onClick() {
+    console.log(this.event);
+  }
 
 }

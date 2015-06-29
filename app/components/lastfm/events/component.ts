@@ -13,13 +13,12 @@ import {LastFMEvent}  from 'components/lastfm/event/component'
 })
 export class LastFMEvents {
 
-  lastFMClient: LastFMClient
-  events: Array<Object>
+  private lastFMClient: LastFMClient
+  public  events: Array<Object>
 
   constructor(lastFMClient: LastFMClient) {
     this.lastFMClient = lastFMClient;
     this.init();
-    this.events = [];
   }
 
   onData(data){
