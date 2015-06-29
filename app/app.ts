@@ -1,19 +1,27 @@
 /// <reference path="../typings/tsd.d.ts" />
 import {Component, View, bootstrap} from 'angular2/angular2';
-import {LastFMEvents} from 'components/lastfm-events/lastfm-events'
+import {RouteConfig, RouterOutlet, routerInjectables} from 'angular2/router';
+
+import {LastFMEvents}      from 'components/lastfm-events/lastfm-events'
+import {InstagramPictures} from 'components/instagram-pictures/instagram-pictures'
 
 @Component({
   selector: 'app'
 })
+@RouteConfig([
+  { path: '/',      component: LastFMEvents },
+  { path: '/event', component: InstagramPictures, as: 'event' },
+])
 @View({
-  directives: [LastFMEvents],
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  directives: [RouterOutlet]
 })
 class App {
 
   constructor() {
+
   }
 
 }
 
-bootstrap(App);
+bootstrap(App, [routerInjectables]);

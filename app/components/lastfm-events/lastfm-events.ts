@@ -1,12 +1,17 @@
 import {Component, View, NgFor} from 'angular2/angular2'
+
 import {LastFMClient} from '../../services/lastfm'
+import {LastFMEvent}  from '../../components/lastfm-event/lastfm-event'
 
 @Component({
   selector: 'lastfm-events',
-  appInjector: [LastFMClient]
+  appInjector: [LastFMClient],
+  hostListeners: {
+    'click': 'onClick()',
+  }
 })
 @View({
-  directives: [NgFor],
+  directives: [NgFor, LastFMEvent],
   templateUrl: 'components/lastfm-events/lastfm-events.html'
 })
 export class LastFMEvents {
@@ -25,8 +30,11 @@ export class LastFMEvents {
   }
 
   init(){
-    console.log(this);
-    this.lastFMClient.getEvents('Paris').then(this.onData.bind(this))
+    this.lastFMClient.getArtistPastEvent('the+who').then(this.onData.bind(this))
+  }
+
+  onClick() {
+    console.log('hello');
   }
 
 }

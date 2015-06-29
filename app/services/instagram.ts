@@ -18,7 +18,7 @@ export class InstagramClient {
     this.endpoint = [this.protocol, ENDPOINT, API_VERSION].join('/')
   }
 
-  getMedias(tag){
+  getMedias(tag) {
     let ref = `/tags/${tag}/media/recent?access_token=${ACCESS_TOKEN}&callback=callbackInstagram`
     return this.request.jsonp(this.endpoint + ref)
   }
