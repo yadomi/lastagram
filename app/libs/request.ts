@@ -31,7 +31,7 @@ export class Request {
     });
   }
 
-  public get(url, options = {}) {
+  public get(url) {
     return this.go({method: 'GET', url: url})
   }
 
