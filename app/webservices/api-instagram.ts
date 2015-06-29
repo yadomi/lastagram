@@ -3,6 +3,7 @@ import {Request} from '../libs/request';
 let ENDPOINT = 'api.instagram.com'
 let API_VERSION = 'v1'
 
+/* /!\ Personnal access token, this is really bad, i know */
 let ACCESS_TOKEN = '31003280.5c1de8f.3e76027eeefe429ba5cc90f0e64ccda0'
 let CLIENT_ID = '5c1de8fe2653445489b480a72803a44c'
 
